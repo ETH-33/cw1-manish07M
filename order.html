@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneakerz Nation</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #selected-shoe-image {
+          width: 200px;
+          height: 200px;
+          object-fit: cover;
+        }
+      </style>
+</head>
+
+<body>
+
+    <section id="header">
+        <a href="#"><img src="images/logo_black_png.png" class="logo" alt=""></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="Order.html">Order</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag"><a href="login.html"><i class="fas fa-user user"></i></a></li>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+    
+  <section id="order-details">
+    <div class="selected-shoe">
+      <h2>Selected Shoe</h2>
+      <img src="" id="selected-shoe-image" alt="Selected Shoe">
+      <span id="selected-shoe-brand"></span>
+      <h5 id="selected-shoe-name"></h5>
+      <h4 id="selected-shoe-price"></h4>
+    </div>
+    <div class="customer-info">
+      <h2>Customer Information</h2>
+      <form action="submit_order.php" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" required></textarea>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <input type="submit" value="Place Order">
+      </form>
+    </div>
+  </section>
+
+  <script>
+    const selectedProduct = JSON.parse(sessionStorage.getItem('selectedProduct'));
+
+    
+    const selectedShoeImage = document.getElementById('selected-shoe-image');
+    selectedShoeImage.src = selectedProduct.image;
+    
+    const selectedShoeBrand = document.getElementById('selected-shoe-brand');
+    selectedShoeBrand.textContent = selectedProduct.brand;
+
+    const selectedShoeName = document.getElementById('selected-shoe-name');
+    selectedShoeName.textContent = selectedProduct.name;
+
+    const selectedShoePrice = document.getElementById('selected-shoe-price');
+    selectedShoePrice.textContent = 'Rs.' + selectedProduct.price;
+  </script>
+
+    <!-- footer section starts  -->
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <a href="https://www.facebook.com/sneakerznation?mibextid=LQQJ4d"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    <a href="https://www.tiktok.com/@sneakerznation?_t=8dnRrcmISsE&_r=1"><i class="fab fa-tiktok"></i> Tiktok</a>
+                    <a href="https://instagram.com/sneakerznation_?igshid=MzRlODBiNWFlZA=="><i class="fab fa-instagram"></i> Instagram</a>
+                </div>
+            </div>
+    
+            <div class="box">
+                <h4>Others</h4>
+                <a href="#"><i class="fas fa-angle-right"></i> Ask Questions</a>
+                <a href="#"><i class="fas fa-angle-right"></i> About Us</a>
+                <a href="#"><i class="fas fa-angle-right"></i> Privacy Policy</a>
+                <a href="#"><i class="fas fa-angle-right"></i> Terms of Use</a>
+            </div>
+            
+            <div class="box">
+                <h4>Contact Info</h4>
+                <a href="tel:+9779826071717"><i class="fas fa-phone"></i>(+977) 9826071717</a>
+                <a href="mailto:sneakerznation92@gmail.com"><i class="fas fa-envelope"></i> sneakerznation92@gmail.com</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=M9Q6%2B7R2%20Kathmandu"><i class="fas fa-map"></i> M9Q6+7R2 Kathmandu</a>
+            </div>
+        </div>
+        <div class="credit">Created by <span>Tikanath Gautam</span> | All Rights Reserved!</div>
+    </section>
+    
+    
+<!--footer section ends-->
+
+    
+    <script src="script.js"></script>
+
+</body>
+
+</html>
